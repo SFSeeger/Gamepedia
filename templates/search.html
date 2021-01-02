@@ -1,0 +1,24 @@
+﻿{% extends 'base.html' %}
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    {%block style%}
+    <link rel="stylesheet" type="text/css" href="{% static 'DetailStyle.css' %}" />
+    {%endblock%}
+    <title>{% block title %} {{ searchStr }} - Gamepedia Search{% endblock %}</title>
+</head>
+<body>
+    {% block content %}
+    <div class="dialog_outer_ncenter">
+        <div style="display:grid; grid-template-columns:auto auto auto; width:100%">
+            {% if obj%}
+            {%for element in obj.all%}
+            <a href="/{{url}}/{{element.id}}" class="result">{{element.name}}</a> 
+            {%endfor%} 
+            {%else%} 
+            <p style="font-size:3rem">No results</p>
+            {%endif%}
+        </div>
+    </div>
+    {% endblock %}
+</body>

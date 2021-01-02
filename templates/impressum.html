@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{%load static%}
+
+<head>
+   {%block style%}
+   <link rel="stylesheet" type="text/css" href="{% static 'DetailStyle.css' %}" />
+   <link rel="stylesheet" type="text/css" href="{% static 'impressum.css' %}" />
+   {%endblock%}
+   <title>{% block title %}Impressum - Gamepedia {% endblock %}</title>
+</head>
+<body>
+    {%block content%}
+    <div class="dialog_outer_ncenterflex">
+        <h1>Impressum</h1>
+        <br />
+        <p>Erstellt und gehosted bei Simon Felix Seeger</p>
+        <p>Kontakt: simon.f.seeger@gmx.de</p>
+        <br />
+        <br />
+        <h2>Urheberrechte: </h2>
+        <p>Die Urheberrecht der Spielcovers liegt bei den Entwickler der jeweiligen Spiele</p>
+        <p>Das Urheberrecht der USK-Logos liegt bei der USK</p>
+        <p>Sonstige Bilder unteriegen der CC0-Lizens oder wurden selbst erstellt</p>
+        <br />
+        <br />
+        <p>Diese Webseite ist nicht ofiziell und wird nach Fertigstellung des Informatikprojekts geschlossen</p>
+    </div>
+    {%endblock%}
+</body>

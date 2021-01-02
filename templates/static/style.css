@@ -1,0 +1,141 @@
+html {
+    user-select: none;
+    margin: 0;
+    height: auto;
+    overflow: visible;
+    background-image: url("BG.png");
+    color: white
+}
+
+header {
+    height: 6.25rem;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #262626;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    transition: 0.5s;
+    visibility:visible;
+}
+a {
+    color:white;
+    font-size:2rem;
+    text-decoration:none;
+}
+
+    a:hover {
+        color: #cb022c
+    }
+
+.logo {
+    background-image: url("LogoWhite.svg");
+    background-position: center right;
+    background-repeat: no-repeat;
+    background-size: 10rem;
+    color: transparent;
+    width: 10rem;
+    height: 9rem;
+}
+
+.title {
+    flex: 1 1 auto;
+    margin: 0.3rem 0 0 0;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-size: 4rem;
+    font-weight: bold;
+    color: white;
+    font-family: Arial, sans-serif;
+}
+
+title:hover{
+    color:white
+}
+
+.login{
+    margin-right:4rem;
+    margin-top:1.5rem
+}
+
+.icon {
+    background-image: url(Lock.svg);
+    background-position: top right;
+    background-repeat: no-repeat;
+    background-size: 1.2rem;
+    color: transparent;
+    width: 3rem;
+    height: 6rem;
+    margin-right:0.5rem;
+    margin-top:1.8rem
+}
+
+
+.dialog_outer {
+    box-sizing: border-box;
+    height: 100%;
+    display: flex;
+    background-image: url("img_login_background.svg");
+    background-position: center 51%;
+    background-repeat: no-repeat;
+    background-size: 38rem;
+    padding: 6.5rem 0;
+    justify-content: center;
+    align-items: center;
+    line-height: 16px;
+}
+
+.dialog_inner {
+    flex: 0 0 28.75rem;
+    margin: auto 0;
+    padding: 0;
+    box-shadow: 0 0.1875rem 0.375rem rgba(0,0,0,0.25);
+    background-color: white;
+    display: inline;
+    vertical-align: middle;
+}
+
+.dialog_head_box {
+    background-color: #424242;
+    text-align: left;
+    height: 3.25rem;
+    margin: auto;
+}
+
+.dialog_content {
+    padding: 0 0 1rem 0;
+    min-height: 5rem;
+}
+
+.InputStyle {
+    margin: 0 0 0.5rem;
+    color: #3F464C;
+    vertical-align: middle;
+    display: inline-block;
+    width: 17.25rem;
+    border: 1px solid #d5d5d5;
+    height: 2rem;
+}
+
+.InputStyle.Dropdown{
+    width:5.5rem;
+}
+
+.search_button{
+    background-size:auto;
+    height:2rem;
+    width:auto;
+    border:none;
+    margin-bottom:0.5rem
+}
+    .search_button:hover {
+        background-color: #cb022c
+    }
+
+.impressum{
+    margin-top:auto;
+    margin-bottom:2rem;
+}

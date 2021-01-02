@@ -1,0 +1,62 @@
+﻿{% extends 'base.html' %}
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    {%block style%}
+    <link rel="stylesheet" type="text/css" href="{% static 'DetailStyle.css' %}" />
+    {%endblock%}
+    <title>{% block title %} {{ obj.name }} - Gamepedia {% endblock %}</title>
+</head>
+<body>
+    {% block content %}
+    <div class="dialog_outer_ncenter">
+        <div>
+            <h1 style="font-size:xxx-large; text-decoration:underline #757575; margin-bottom:0px">{{ obj.name }}</h1>
+            </br>
+            <div style="padding-left:3rem; max-width: 85%">
+                <h2 class="headline">Genre:</h2>
+                <div class="inset">{% for genre in obj.genre.all %} {%if genre%} <a href="/similar/Genre/{{genre.id}}" class="link">{{genre.name}},</a> {%else%} <p>-/-</p> {%endif%} {%endfor%}</div>
+
+                <h2 class="headline">Entwickler:</h2>
+                <div class="inset">{% for developer in obj.developer.all %} <a href="/developer/{{developer.id}}" class="link">{{developer.name}},</a>{%endfor%}</div>
+
+                <h2 class="headline">Publisher:</h2>
+                <a class="insetLink" href="/publisher/{{obj.publisher.id}}">{{obj.publisher}}</a>
+
+                <h2 class="headline">Erscheinungsjahr:</h2>
+                <p class="inset">{%if obj.release_date%} {{obj.release_date}} {%else%} -/- {%endif%}</p>
+
+                <h2 class="headline">Beschreibung:</h2>
+                {%if obj.description%} <pre class="inset desc">{{ obj.description|linebreaks }}</pre> {%else%} <pre class="inset">-/-</pre> {%endif%}
+
+                <h2 class="headline">Hardware-Anforderung:</h2>
+                {%if obj.hardware_requirements%} <pre class="hardware">{{obj.hardware_requirements}}</pre> {%else%} <pre class="inset">-/-</pre> {%endif%}
+
+                <h2 class="headline">Plattform:</h2>
+                <div class="inset">{% for plattform in obj.plattform.all %} <a href="/plattform/{{plattform.id}}" class="link">{{plattform.name}},</a>{%endfor%}</div>
+
+                <h2 class="headline" style="margin-bottom:0.2rem">Engine:</h2>
+                <a class="insetLink" href="/engine/{{obj.engine.id}}">{{obj.engine}}</a>
+
+                <h2 class="headline" style="margin-bottom:0.2rem">Sales:</h2>
+                <p class="inset">{%if obj.sales%} {{obj.sales}} {%else%} -/- {%endif%}</p>
+            </div>
+        </div>
+        <!--Images-->
+        <div style="margin-right:-10%; margin-left:auto">
+            <img src="{{cover}}" class="image" />
+            <div style="display:flex">
+                <table class="table">
+                    <tr><th class="table inner">Multiplayer</th><th class="table inner">Crossplay</th></tr>
+                    <tr><td class="table inner">{%if obj.multiplayer%} ja {%else%} nein {%endif%}</td><td class="table inner">{%if obj.crossplay%} ja {%else%} nein {%endif%}</td></tr>
+                </table>
+                <img class="usk" src="{%if obj.usk == "0" %} /static/usk/0.png {% elif obj.usk == "6" %} /static/usk/6.png {% elif obj.usk == "12" %} /static/usk/12.png {% elif obj.usk == "16" %} /static/usk/16.png {% elif obj.usk == "18" %} /static/usk/18.png {%endif%}" />
+                <div style="background-color: #262626;width: 7.6rem;border-style: solid;margin-left: 0.8rem;">
+                    <h2>Rating:</h2>
+                    <h1 style="text-align:center">{%if obj.rating%} {{obj.rating}} {%else%} -/- {%endif%}</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endblock %}
+</body>

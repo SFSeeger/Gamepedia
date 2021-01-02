@@ -1,0 +1,25 @@
+﻿{% extends 'base.html' %}
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    {%block style%}
+    <link rel="stylesheet" type="text/css" href="{% static 'DetailStyle.css' %}" />
+    {%endblock%}
+    <title>{% block title %} {{ obj.name }} - Gamepedia {% endblock %}</title>
+</head>
+<body class="unscroll">
+    {%block content%}
+    <div class="dialog_outer_ncenterflex">
+        <h1 style="font-size:xxx-large; text-decoration:underline #757575; margin-bottom:0px">{{ obj.name }}</h1>
+
+        <h2 class="headline">Managment:</h2>
+        <p class="inset">{%if obj.management%} {{obj.management}}{%else%} -/- {%endif%}</p>
+
+        <h2 class="headline">Gründungsdatum:</h2>
+        <p class="inset">{%if obj.date_of_establishment%} {{obj.date_of_establishment}}{%else%} -/- {%endif%}</p>
+        <br />
+        <br />
+        <a href="/similar/Developer/{{obj.id}}">Spiele von diesem Entwickler</a>
+    </div>
+    {%endblock%}
+</body>
