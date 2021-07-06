@@ -1,0 +1,33 @@
+﻿{% extends 'base.html' %}
+    <body>
+        {% block content %}
+        <div class="dialog_outer">
+            <div class="dialog_inner">
+                <div class="dialog_head_box">
+                    <h2 style="margin: 0 0 0 1.25rem; font-weight:bold; font-size: 1.25rem; color:white; line-height:3.4rem">Willkommen bei Gamepedia</h2>
+                </div>
+                <div class="dialog_content">
+                    <form method="get" autocomplete="off">
+                        <!--{% csrf_token %}-->
+                        <div style="padding: 0 1.25rem 0 1.25rem">
+                            <h3 style="margin: 1.25rem 0; line-height: 1.25rem; color:black">Suche</h3>
+                            <div style="display: flex;flex-flow: row wrap;align-items: center">
+                                <select id="Dropdown" name="Dropdown" class="InputStyle Dropdown">
+                                    <option value="Game">Spiel</option>
+                                    <option value="Publisher">Publisher</option>
+                                    <option value="Engine">Engine</option>
+                                    <option value="Developer">Entwickler</option>
+                                    <option value="Plattform">Plattform</option>
+                                    <option value="AllGames">Alle Spiele</option>
+                                </select>
+                                <input id="uiPass" tabindex="2" maxlength="32" name="Search" class="InputStyle" />
+                                <button class="search_button" type="submit" value="{{ query|escape }}">Search</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <a class="impressum" href="/impressum">Impressum</a>
+        {% endblock %}
+    </body>

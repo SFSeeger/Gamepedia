@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+{% load static %}
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="{% static 'TitleLogo.ico' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+    {% block style %} {%endblock%}
+    <title>{% block title %} Gamepedia {% endblock%}</title>
+</head>
+<body>
+    <script>
+        window.onscroll = function() {scrollFunction()};
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 90 || document.documentElement.scrollTop > 90) {
+                document.getElementById("Top").style.opacity = "0";
+                document.getElementById("Top").style.visibility = "hidden";
+             }
+            else {
+                document.getElementById("Top").style.opacity = "1";
+                document.getElementById("Top").style.visibility = "visible";
+             }
+        } 
+    </script>
+    <header id="Top">
+        <div class="logo"></div>
+        <div class="title"><a class="title" href="/">Gamepedia</a></div>
+        <div class="icon"></div>
+        <div class="login"><a href="/admin">Login</a></div>
+    </header>
+    {% block content %}
+    <p>You shouldn't see this</p>
+    {% endblock %}
+
+</body>
+</html>

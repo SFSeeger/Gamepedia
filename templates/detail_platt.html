@@ -1,0 +1,30 @@
+﻿{% extends 'base.html' %}
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    {%block style%}
+    <link rel="stylesheet" type="text/css" href="{% static 'DetailStyle.css' %}" />
+    {%endblock%}
+    <title>{% block title %} {{ obj.name }} - Gamepedia {% endblock %}</title>
+</head>
+<body class="unscroll">
+    {%block content%}
+    <div class="dialog_outer_ncenterflex">
+        <h1 style="font-size:xxx-large; text-decoration:underline #757575; margin-bottom:0px">{{ obj.name }}</h1>
+
+        <h2 class="headline">Hardware-Eigenschaften:</h2>
+        {%if obj.specs%} <pre class="inset">{{obj.specs}}</pre> {%else%} <pre class="inset">-/-</pre> {%endif%}
+
+        <h2 class="headline">Gründungsdatum:</h2>
+        <p class="inset">{%if obj.date_of_establishment%} {{obj.date_of_establishment}}{%else%} -/- {%endif%}</p>
+
+        <h2 class="headline">Beschreibung:</h2>
+        <p class="inset">{%if obj.description%} {{obj.description}}{%else%} -/- {%endif%}</p>
+
+        <h2 class="headline">Portabel: {%if obj.portable%} ja {%else%} nein {%endif%}</h2>
+        <br />
+        <br />
+        <a href="/similar/Plattform/{{obj.id}}">Spiele auf dieser Plattform</a>
+    </div>
+    {%endblock%}
+</body>
